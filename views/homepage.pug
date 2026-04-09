@@ -6,15 +6,9 @@ html(lang="en")
     body
         a(href="/update-cobj") Add to this table
         h1 My Pets
-        table
-            thead
-                tr
-                    th Name
-                    th Type
-                    th Birthday
-            tbody
-                each pet in data
-                    tr
-                        td #{pet.properties.pet_name}
-                        td #{pet.properties.pet_type}
-                        td #{pet.properties.pet_birthday}
+        div.cards
+            each pet in data
+                div.card
+                    h2 #{pet.properties.pet_name}
+                    p Type: #{pet.properties.pet_type}
+                    p Birthday: #{pet.properties.pet_birthday}

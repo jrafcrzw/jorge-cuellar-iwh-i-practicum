@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+    head
+        title #{title}
+        link(rel="stylesheet" href="/css/style.css")
+    body
+        a(href="/") Return to the homepage
+        h1 Add a New Pet
+        div.form-wrapper
+            form(action="/update-cobj" method="POST")
+                label(for="pet_name") Pet Name
+                input(type="text" name="pet_name" required)
+
+                label(for="pet_type") Pet Type
+                input(type="text" name="pet_type" required)
+
+                label(for="pet_birthday") Pet Birthday (YYYY-MM-DD)
+                input(type="text" name="pet_birthday")
+
+                input(type="submit" value="Add Pet")

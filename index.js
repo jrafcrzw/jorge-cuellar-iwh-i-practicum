@@ -56,6 +56,30 @@ app.get('/update-cobj', async (req, res) => {
 
 // * Code for Route 3 goes here
 
+// ROUTE 3 - Form submission: POST new Pet record to HubSpot
+app.post('/update-cobj', async (req, res) => {
+    const newPet = {
+        properties: {
+            pet_name: req.body.pet_name,
+            pet_type: req.body.pet_type,
+            pet_birthday: req.body.pet_birthday
+        }
+    };
+
+    const url = 'https://api.hubapi.com/crm/objects/2026-03/2-60512224';
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    };
+
+    try {
+        await axios.post(url, newPet, { headers });
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
 
